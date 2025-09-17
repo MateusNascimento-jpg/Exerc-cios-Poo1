@@ -1,34 +1,42 @@
-package ex2;
-import java.util.ArrayList; 
+package ex4;
 
-class Principal {
+import java.util.ArrayList;
+
+public class Principal {
     public static void main(String[] args) {
-        ArrayList<Integer> numeros = new ArrayList<>();
-        numeros.add(10); 
-        numeros.add(20);
-        numeros.add(20); 
-        numeros.add(10); 
-        numeros.add(30); 
-        
-        System.out.println("Lista original: " + numeros + "\n");
-        
-        // Chama a função para obter os elementos únicos
-        ArrayList<Integer> unicos = elementosUnicos(numeros);
-        
-        System.out.println("Lista de elementos únicos: " + unicos + "\n");
-        System.out.println("Número de elementos únicos: " + unicos.size() + "\n");
+
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        num.add(10);
+        num.add(11);
+        num.add(12);
+        num.add(13);
+        num.add(14);
+        num.add(15);
+        num.add(16);
+        num.add(17);
+
+        System.out.println(num);
+
+       
+        int indice = menorNumero(num);
+
+        System.out.println("O menor número é: " + num.get(indice));
     }
-    
-    public static ArrayList<Integer> elementosUnicos(ArrayList<Integer> lista) {
-        ArrayList<Integer> unicos = new ArrayList<>(); 
-        
-        for (Integer num : lista) {
-            if (!unicos.contains(num)) {
-                unicos.add(num); 
+
+   
+    private static int menorNumero(ArrayList<Integer> lista) {
+        int indiceMenor = 0;
+        int menor = lista.get(0);
+
+        for (int i = 0; i < lista.size(); i++) {
+            int elemento = lista.get(i);
+
+            if (elemento < menor) {
+                menor = elemento;
+                indiceMenor = i;
             }
         }
-        
-        return unicos; 
+
+        return indiceMenor;
     }
 }
-
